@@ -19,7 +19,7 @@ description
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			keywords = <"Duke criteria, ISCVID, infective endocarditis, IE, cardiology, PET/CT, echocardiography.", ...>
-			use = <"all data items are assigned a repeating cardinality (0..*), enabling users to document multiple instances of each criterion for more detailed granularity. For cases where only a single value is needed, the cardinality should instead be constrained to a single optional (0..1).">
+			use = <"Most of data items are assigned a repeating cardinality (0..*), enabling users to document multiple instances of each criterion for more detailed granularity. For cases where only a single value is needed, the cardinality should instead be constrained to a single optional (0..1).">
 		>
 	>
 	other_details = <
@@ -33,7 +33,7 @@ Fowler VG, Durack DT, Selton-Suty C, Athan E, Bayer AS, Chamis AL, Dahl A, DiBer
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"e9d6f9243a0d98309cef13b421cd38ed">
+		["MD5-CAM-1.0.1"] = <"d9b73b300a9a1fbdfa6986d9ccdc3cec">
 		["build_uid"] = <"3ce8af06-65b7-3ff9-8f62-c29854bd892f">
 	>
 
@@ -48,19 +48,43 @@ definition
 								items cardinality matches {0..*; unordered} matches {
 									CLUSTER[at0004] occurrences matches {0..1} matches {    -- Major criteria
 										items cardinality matches {1..*; unordered} matches {
-											ELEMENT[at0006] occurrences matches {0..1} matches {    -- Positive blood culture for infective endocarditis
-												value matches {
-													DV_BOOLEAN matches {*}
+											CLUSTER[at0022] occurrences matches {0..1} matches {    -- Microbiologic
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0006] occurrences matches {0..*} matches {    -- Positive blood culture
+														value matches {
+															DV_BOOLEAN matches {*}
+														}
+													}
+													ELEMENT[at0025] occurrences matches {0..*} matches {    -- Positive laboratory tests
+														value matches {
+															DV_BOOLEAN matches {*}
+														}
+													}
 												}
 											}
-											ELEMENT[at0007] occurrences matches {0..1} matches {    -- Evidence of endocardial involvement
-												value matches {
-													DV_BOOLEAN matches {*}
+											CLUSTER[at0023] occurrences matches {0..1} matches {    -- Imaging
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0007] occurrences matches {0..*} matches {    -- Echocardiography and cardiac CT imaging
+														value matches {
+															DV_BOOLEAN matches {*}
+														}
+													}
+													ELEMENT[at0026] occurrences matches {0..*} matches {    -- PET/CT imaging
+														value matches {
+															DV_BOOLEAN matches {*}
+														}
+													}
 												}
 											}
-											CLUSTER[at0022] occurrences matches {0..1} matches {*}    -- Microbiologic
-											CLUSTER[at0023] occurrences matches {0..1} matches {*}    -- Imaging
-											CLUSTER[at0024] occurrences matches {0..1} matches {*}    -- Surgical
+											CLUSTER[at0024] occurrences matches {0..1} matches {    -- Surgical
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0027] occurrences matches {0..1} matches {    -- IE evidence from surgery
+														value matches {
+															DV_BOOLEAN matches {*}
+														}
+													}
+												}
+											}
 										}
 									}
 									CLUSTER[at0005] occurrences matches {0..1} matches {    -- Minor clinical criteria
@@ -75,17 +99,17 @@ definition
 													DV_BOOLEAN matches {*}
 												}
 											}
-											ELEMENT[at0010] occurrences matches {0..1} matches {    -- Vascular phenomena
+											ELEMENT[at0010] occurrences matches {0..*} matches {    -- Vascular phenomena
 												value matches {
 													DV_BOOLEAN matches {*}
 												}
 											}
-											ELEMENT[at0011] occurrences matches {0..1} matches {    -- Immunologic phenomena
+											ELEMENT[at0011] occurrences matches {0..*} matches {    -- Immunologic phenomena
 												value matches {
 													DV_BOOLEAN matches {*}
 												}
 											}
-											ELEMENT[at0012] occurrences matches {0..1} matches {    -- Microbiological evidence
+											ELEMENT[at0012] occurrences matches {0..*} matches {    -- Microbiological evidence
 												value matches {
 													DV_BOOLEAN matches {*}
 												}
@@ -147,12 +171,12 @@ ontology
 					description = <"">
 				>
 				["at0006"] = <
-					text = <"Positive blood culture for infective endocarditis">
-					description = <"Typical microorganisms consistent with infective endocarditis from two separate blood cultures, microorganisms consistent with IE from persistently positive blood cultures, or single positive blood culture for Coxiella burnetii or antiphase I IgG antibody titer more than 1:800.">
+					text = <"Positive blood culture">
+					description = <"Microorganisms that commonly cause IE isolated from 2 or more separate blood culture sets (Typical); or microorganisms that occasionally or rarely cause IE isolated from 3 or more separate blood culture sets (Nontypical).">
 				>
 				["at0007"] = <
-					text = <"Evidence of endocardial involvement">
-					description = <"Echocardiogram positive for infective endocarditis (oscillating intracardiac mass, abscess, new partial dehiscence of prosthetic valve) or new valvular regurgitation. Worsening or changing of pre-existing murmur not sufficient.">
+					text = <"Echocardiography and cardiac CT imaging">
+					description = <" Echocardiography and/or cardiac CT showing vegetation, valvular/leaflet perforation, valvular/leaflet aneurysm, abscess, pseudoaneurysm, or intracardiac fistula; or significant new valvular regurgitation on echocardiography as compared with previous imaging. Worsening or changing of preexisting regurgitation is not sufficient; or new partial dehiscence of prosthetic valve as compared with previous imaging.">
 				>
 				["at0008"] = <
 					text = <"Predisposition">
@@ -212,6 +236,20 @@ PCR on a valve or wire without additional clinical or microbiological supporting
 				["at0024"] = <
 					text = <"Surgical">
 					description = <"">
+				>
+				["at0025"] = <
+					text = <"Positive laboratory tests">
+					description = <"Positive polymerase chain reaction (PCR) or other nucleic acid-based techniquec for Coxiella burnetii, Bartonella species, or Tropheryma whipplei from blood; or Coxiella burnetii antiphase I immunoglobulin G (IgG) antibody titer >1:800, or isolated from a single blood culture; or indirect immunofluorescence assays (IFA) for detection of IgM and IgG antibodies to Bartonella henselae or Bartonella quintana with
+immunoglobulin G (IgG) titer ≥1:800.
+">
+				>
+				["at0026"] = <
+					text = <"PET/CT imaging">
+					description = <"Positron emission computed tomography with 18F-fluorodeoxyglucose. Abnormal metabolic activity involving a native or prosthetic valve, ascending aortic graft (with concomitant evidence of valve involvement), intracardiac device leads or other prosthetic material.">
+				>
+				["at0027"] = <
+					text = <"IE evidence from surgery">
+					description = <"Evidence of IE documented by direct inspection during heart surgery neither Major Imaging Criteria nor subsequent histologic or microbiologic confirmation.">
 				>
 			>
 		>
