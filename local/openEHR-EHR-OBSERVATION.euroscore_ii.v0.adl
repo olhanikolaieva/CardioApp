@@ -10,7 +10,7 @@ language
 description
 	original_author = <
 		["name"] = <"Olha Nikolaieva">
-		["email"] = <"olha.nikolaieva.med@gmail.com">
+		["email"] = <"olha.nikolaieva@usb.ch">
 		["organisation"] = <"University Hospital Basel">
 		["date"] = <"2025-02-13">
 	>
@@ -41,7 +41,7 @@ Not to be used to record creatinine clearance - use openEHR-EHR-OBSERVATION.esti
 Chalmers J, Pullan M, Fabri B, McShane J, Shaw M, Mediratta N, Poullis M. Validation of EuroSCORE II in a modern cohort of patients undergoing cardiac surgery. Eur J Cardiothorac Surg. 2013 Apr;43(4):688-94. doi: 10.1093/ejcts/ezs406. Epub 2012 Jul 24. PMID: 22833541.
 
 Kalender M, Adademir T, Tasar M, Ecevit AN, Karaca OG, Salihi S, Buyukbayrak F, Ozkokeli M. Validation of EuroSCORE II risk model for coronary artery bypass surgery in high-risk patients. Kardiochir Torakochirurgia Pol. 2014 Sep;11(3):252-6. doi: 10.5114/kitp.2014.45672. Epub 2014 Sep 28. PMID: 26336431; PMCID: PMC4283878.">
-		["MD5-CAM-1.0.1"] = <"c4a012786704edc7e0e27463f5c1e6fe">
+		["MD5-CAM-1.0.1"] = <"0bcbaaa4703740379d5a994e5697190c">
 		["build_uid"] = <"a1e7c9ed-f6e8-35d1-a64e-4740d517e574">
 	>
 
@@ -57,6 +57,9 @@ definition
 					}
 				}
 			}
+		}
+		protocol matches {
+			ITEM_TREE[at0004] matches {*}    -- Item tree
 		}
 	}
 
@@ -74,10 +77,14 @@ ontology
 				>
 				["at0002"] = <
 					text = <"Any event">
-					description = <"@ internal @">
+					description = <"Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time.">
 				>
 				["at0003"] = <
 					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Item tree">
 					description = <"@ internal @">
 				>
 			>
