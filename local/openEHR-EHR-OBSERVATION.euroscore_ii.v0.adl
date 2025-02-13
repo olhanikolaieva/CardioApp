@@ -18,6 +18,16 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
+			purpose = <"To record the results for each component parameter and predicted mortality for the EuroSCORE II.">
+			keywords = <"EuroSCORE II, cardiology, risk, mortality, cardiac surgery.", ...>
+			use = <"Use to record the results for each component parameter and predicted mortality for the EuroSCORE II.">
+			misuse = <"Not to be used to record the perioperative risk of major cardiac complications during non-cardiac surgery - use openEHR-EHR-OBSERVATION.revised_cardiac_risk_index.v1.
+
+Not to be used to record NYHA functional classification of heart failure - use openEHR-EHR-OBSERVATION.nyha_heart_failure.v1.
+
+Not to be used to record CCS angina symptom classification - use openEHR-EHR-OBSERVATION.ccs_angina_status.v0.
+
+Not to be used to record creatinine clearance - use openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0.">
 		>
 	>
 	other_details = <
@@ -26,7 +36,12 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"973d39d647cc3ded3f8a9d041412e3e9">
+		["references"] = <"Nashef SA, Roques F, Sharples LD, Nilsson J, Smith C, Goldstone AR, Lockowandt U. EuroSCORE II. Eur J Cardiothorac Surg. 2012 Apr;41(4):734-44; discussion 744-5. doi: 10.1093/ejcts/ezs043. Epub 2012 Feb 29. PMID: 22378855.
+
+Chalmers J, Pullan M, Fabri B, McShane J, Shaw M, Mediratta N, Poullis M. Validation of EuroSCORE II in a modern cohort of patients undergoing cardiac surgery. Eur J Cardiothorac Surg. 2013 Apr;43(4):688-94. doi: 10.1093/ejcts/ezs406. Epub 2012 Jul 24. PMID: 22833541.
+
+Kalender M, Adademir T, Tasar M, Ecevit AN, Karaca OG, Salihi S, Buyukbayrak F, Ozkokeli M. Validation of EuroSCORE II risk model for coronary artery bypass surgery in high-risk patients. Kardiochir Torakochirurgia Pol. 2014 Sep;11(3):252-6. doi: 10.5114/kitp.2014.45672. Epub 2014 Sep 28. PMID: 26336431; PMCID: PMC4283878.">
+		["MD5-CAM-1.0.1"] = <"c4a012786704edc7e0e27463f5c1e6fe">
 		["build_uid"] = <"a1e7c9ed-f6e8-35d1-a64e-4740d517e574">
 	>
 
@@ -51,7 +66,7 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"EuroSCORE II">
-					description = <"euroscore_ii">
+					description = <"European System for Cardiac Operative Risk Evaluation (EuroSCORE) II used during a preoperative evaluation to assess the risk of mortality for adult patients undergoing major cardiac surgery, including coronary artery bypass grafting, heart valve surgery, or combined procedures.">
 				>
 				["at0001"] = <
 					text = <"History">
