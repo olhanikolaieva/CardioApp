@@ -34,12 +34,12 @@ Fowler VG, Durack DT, Selton-Suty C, Athan E, Bayer AS, Chamis AL, Dahl A, DiBer
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"fd8784358e1115f830b4038ff0ee37dc">
+		["MD5-CAM-1.0.1"] = <"2ec36dec69ac2f4b50cf734c4dabdd11">
 		["build_uid"] = <"3ce8af06-65b7-3ff9-8f62-c29854bd892f">
 	>
 
 definition
-	OBSERVATION[at0000] matches {    -- duke_iscvid_criteria
+	OBSERVATION[at0000] matches {    -- Duke ISCVID infective endocarditis criteria
 		data matches {
 			HISTORY[at0001] matches {    -- History
 				events cardinality matches {1..*; unordered} matches {
@@ -172,7 +172,7 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"duke_iscvid_criteria">
+					text = <"Duke ISCVID infective endocarditis criteria">
 					description = <"Duke-International Society for Cardiovascular Infectious Diseases (ISCVID) infective endocarditis criteria according to 2023 update.  ">
 				>
 				["at0001"] = <
