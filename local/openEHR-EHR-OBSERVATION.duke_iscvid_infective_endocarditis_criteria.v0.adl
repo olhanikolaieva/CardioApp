@@ -18,6 +18,8 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
+			keywords = <"Duke criteria, ISCVID, infective endocarditis, IE, cardiology, PET/CT, echocardiography.", ...>
+			use = <"all data items are assigned a repeating cardinality (0..*), enabling users to document multiple instances of each criterion for more detailed granularity. For cases where only a single value is needed, the cardinality should instead be constrained to a single optional (0..1).">
 		>
 	>
 	other_details = <
@@ -31,12 +33,12 @@ Fowler VG, Durack DT, Selton-Suty C, Athan E, Bayer AS, Chamis AL, Dahl A, DiBer
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"7eb644c787e0ab4869bbb6d517e79063">
+		["MD5-CAM-1.0.1"] = <"e9d6f9243a0d98309cef13b421cd38ed">
 		["build_uid"] = <"3ce8af06-65b7-3ff9-8f62-c29854bd892f">
 	>
 
 definition
-	OBSERVATION[at0000] matches {    -- duke_iscvid_infective_endocarditis_criteria
+	OBSERVATION[at0000] matches {    -- Duke-ISCVID infective endocarditis criteria
 		data matches {
 			HISTORY[at0001] matches {    -- History
 				events cardinality matches {1..*; unordered} matches {
@@ -44,21 +46,7 @@ definition
 						data matches {
 							ITEM_TREE[at0003] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
-									CLUSTER[at0019] occurrences matches {0..1} matches {    -- Pathological criteria
-										items cardinality matches {1..*; unordered} matches {
-											ELEMENT[at0020] occurrences matches {0..1} matches {    -- Microorganisms in vegetations
-												value matches {
-													DV_BOOLEAN matches {*}
-												}
-											}
-											ELEMENT[at0021] occurrences matches {0..1} matches {    -- Pathologic lesions
-												value matches {
-													DV_BOOLEAN matches {*}
-												}
-											}
-										}
-									}
-									CLUSTER[at0004] occurrences matches {0..1} matches {    -- Major clinical criteria
+									CLUSTER[at0004] occurrences matches {0..1} matches {    -- Major criteria
 										items cardinality matches {1..*; unordered} matches {
 											ELEMENT[at0006] occurrences matches {0..1} matches {    -- Positive blood culture for infective endocarditis
 												value matches {
@@ -70,11 +58,14 @@ definition
 													DV_BOOLEAN matches {*}
 												}
 											}
+											CLUSTER[at0022] occurrences matches {0..1} matches {*}    -- Microbiologic
+											CLUSTER[at0023] occurrences matches {0..1} matches {*}    -- Imaging
+											CLUSTER[at0024] occurrences matches {0..1} matches {*}    -- Surgical
 										}
 									}
 									CLUSTER[at0005] occurrences matches {0..1} matches {    -- Minor clinical criteria
 										items cardinality matches {1..*; unordered} matches {
-											ELEMENT[at0008] occurrences matches {0..1} matches {    -- Predisposing heart condition or injection drug use
+											ELEMENT[at0008] occurrences matches {0..*} matches {    -- Predisposition
 												value matches {
 													DV_BOOLEAN matches {*}
 												}
@@ -132,7 +123,7 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"duke_iscvid_infective_endocarditis_criteria">
+					text = <"Duke-ISCVID infective endocarditis criteria">
 					description = <"Modified Duke criteria for the diagnosis of infective endocarditis.">
 				>
 				["at0001"] = <
@@ -148,7 +139,7 @@ ontology
 					description = <"@ internal @">
 				>
 				["at0004"] = <
-					text = <"Major clinical criteria">
+					text = <"Major criteria">
 					description = <"">
 				>
 				["at0005"] = <
@@ -164,24 +155,26 @@ ontology
 					description = <"Echocardiogram positive for infective endocarditis (oscillating intracardiac mass, abscess, new partial dehiscence of prosthetic valve) or new valvular regurgitation. Worsening or changing of pre-existing murmur not sufficient.">
 				>
 				["at0008"] = <
-					text = <"Predisposing heart condition or injection drug use">
-					description = <"">
+					text = <"Predisposition">
+					description = <"Previous history of IE, prosthetic valve, previous valve repair, congenital heart disease, more than mild regurgitation or stenosis of any etiology, endovascular intracardiac implantable electronic device (CIED), hypertrophic obstructive cardiomyopathy, injection drug use. ">
 				>
 				["at0009"] = <
 					text = <"Fever">
-					description = <"Temperature more than 38 grad Celsius.">
+					description = <"Documented temperature greater than 38.0 °C  (100.4 °F).">
 				>
 				["at0010"] = <
 					text = <"Vascular phenomena">
-					description = <"Major arterial emboli, septic pulmonary infarcts, mycotic aneurysm, intracranial hemorrhage, conjunctival hemorrhages, and Janeway’s lesions">
+					description = <"Clinical or radiological evidence of arterial emboli, septic pulmonary infarcts, cerebral or splenic abscess, mycotic aneurysm, intracranial hemorrhage, conjunctival hemorrhages, Janeway lesions, purulent purpura.">
 				>
 				["at0011"] = <
 					text = <"Immunologic phenomena">
-					description = <"Glomerulonephritis, Osler’s nodes, Roth’s spots, and rheumatoid factor.">
+					description = <"Positive rheumatoid factor, Osler nodes, Roth spots, or immune complex-mediated glomerulonephritis.">
 				>
 				["at0012"] = <
 					text = <"Microbiological evidence">
-					description = <"Positive blood culture but does not meet a major criterion as noted above, or serological evidence of active infection with organism consistent with infective endocarditis. ">
+					description = <"Positive blood cultures for a microorganism consistent with IE but not meeting the requirements for major criterion; or positive culture, PCR, or other nucleic acid based test (amplicon or shotgun sequencing, in situ hybridization) for an organism consistent
+with IE from a sterile body site other than cardiac tissue, cardiac prosthesis, or arterial embolus; or a single finding of a skin bacterium by
+PCR on a valve or wire without additional clinical or microbiological supporting evidence; or">
 				>
 				["at0013"] = <
 					text = <"Item tree">
@@ -208,17 +201,17 @@ ontology
 					text = <"Rejected">
 					description = <"">
 				>
-				["at0019"] = <
-					text = <"Pathological criteria">
+				["at0022"] = <
+					text = <"Microbiologic">
 					description = <"">
 				>
-				["at0020"] = <
-					text = <"Microorganisms in vegetations">
-					description = <"Demonstrated by culture or histologic examination of a vegetation, a vegetation that has embolized, or an intracardiac abscess specimen.">
+				["at0023"] = <
+					text = <"Imaging">
+					description = <"">
 				>
-				["at0021"] = <
-					text = <"Pathologic lesions">
-					description = <"Vegetation or intracardiac abscess confirmed by histologic examination showing active endocarditis.">
+				["at0024"] = <
+					text = <"Surgical">
+					description = <"">
 				>
 			>
 		>
