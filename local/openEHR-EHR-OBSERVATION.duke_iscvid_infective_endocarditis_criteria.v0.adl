@@ -12,7 +12,7 @@ description
 		["date"] = <"2025-02-12">
 		["name"] = <"Olha Nikolaieva">
 		["organisation"] = <"University Hospital Basel">
-		["email"] = <"olha.nikolaieva.med@gmail.com">
+		["email"] = <"olha.nikolaieva@usb.ch">
 	>
 	lifecycle_state = <"unmanaged">
 	details = <
@@ -34,7 +34,7 @@ Fowler VG, Durack DT, Selton-Suty C, Athan E, Bayer AS, Chamis AL, Dahl A, DiBer
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"da5a802049bf32c2430a5be2edb48612">
+		["MD5-CAM-1.0.1"] = <"b704e89c73de46129c33d9595ff24112">
 		["build_uid"] = <"3ce8af06-65b7-3ff9-8f62-c29854bd892f">
 	>
 
@@ -47,6 +47,20 @@ definition
 						data matches {
 							ITEM_TREE[at0003] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0032] occurrences matches {0..1} matches {    -- Pathologic criteria
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0033] occurrences matches {0..1} matches {    -- Microorganism identification
+												value matches {
+													DV_BOOLEAN matches {*}
+												}
+											}
+											ELEMENT[at0034] occurrences matches {0..1} matches {    -- Pathologic lesions
+												value matches {
+													DV_BOOLEAN matches {*}
+												}
+											}
+										}
+									}
 									CLUSTER[at0004] occurrences matches {0..1} matches {    -- Major criteria
 										items cardinality matches {1..*; unordered} matches {
 											CLUSTER[at0022] occurrences matches {0..1} matches {    -- Microbiologic
@@ -167,7 +181,7 @@ ontology
 				>
 				["at0002"] = <
 					text = <"Any event">
-					description = <"@ internal @">
+					description = <"Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time.">
 				>
 				["at0003"] = <
 					text = <"Tree">
@@ -222,7 +236,7 @@ PCR on a valve or wire without additional clinical or microbiological supporting
 				>
 				["at0015"] = <
 					text = <"Diagnostic result">
-					description = <"">
+					description = <"Result based on met Duke-ISCVID criteria. ">
 				>
 				["at0016"] = <
 					text = <"Definite endocarditis">
@@ -270,6 +284,18 @@ concomitant evidence of valve involvement), intracardiac device leads or other p
 				["at0031"] = <
 					text = <"Physical examination">
 					description = <"New valvular regurgitation identified on auscultation if echocardiography is not available. Worsening or changing of preexisting murmur not sufficient.">
+				>
+				["at0032"] = <
+					text = <"Pathologic criteria">
+					description = <"">
+				>
+				["at0033"] = <
+					text = <"Microorganism identification">
+					description = <"Microorganisms demonstrated by culture or histologic examination of a vegetation, a vegetation that has embolized, or an intracardiac abscess specimen are identified in appropriate samples by PCR, amplicon or metagenomic sequencing, or in situ hybridization.">
+				>
+				["at0034"] = <
+					text = <"Pathologic lesions">
+					description = <"Vegetation or intracardiac abscess confirmed by histologic examination showing active endocarditis.">
 				>
 			>
 		>
