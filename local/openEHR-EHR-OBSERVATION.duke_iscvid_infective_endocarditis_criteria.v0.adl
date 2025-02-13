@@ -18,8 +18,9 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
+			purpose = <"To record the results for each component parameter and diagnostic result for the Duke-ISCVID infective endocarditis criteria.">
 			keywords = <"Duke criteria, ISCVID, infective endocarditis, IE, cardiology, PET/CT, echocardiography.", ...>
-			use = <"Most of data items are assigned a repeating cardinality (0..*), enabling users to document multiple instances of each criterion for more detailed granularity. For cases where only a single value is needed, the cardinality should instead be constrained to a single optional (0..1).">
+			use = <"Use to record the results for each component parameter and diagnostic result for the Duke-ISCVID infective endocarditis criteria. Most data items are assigned a repeating cardinality (0..*), enabling users to document multiple instances of each criterion for more detailed granularity. For cases where only a single value is needed, the cardinality should be constrained to a single optional (0..1).">
 		>
 	>
 	other_details = <
@@ -33,7 +34,7 @@ Fowler VG, Durack DT, Selton-Suty C, Athan E, Bayer AS, Chamis AL, Dahl A, DiBer
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"d9b73b300a9a1fbdfa6986d9ccdc3cec">
+		["MD5-CAM-1.0.1"] = <"da5a802049bf32c2430a5be2edb48612">
 		["build_uid"] = <"3ce8af06-65b7-3ff9-8f62-c29854bd892f">
 	>
 
@@ -114,9 +115,19 @@ definition
 													DV_BOOLEAN matches {*}
 												}
 											}
+											ELEMENT[at0028] occurrences matches {0..1} matches {    -- Imaging
+												value matches {
+													DV_BOOLEAN matches {*}
+												}
+											}
+											ELEMENT[at0031] occurrences matches {0..1} matches {    -- Physical examination
+												value matches {
+													DV_BOOLEAN matches {*}
+												}
+											}
 										}
 									}
-									ELEMENT[at0015] occurrences matches {0..1} matches {    -- Diagnostic category
+									ELEMENT[at0015] occurrences matches {0..1} matches {    -- Diagnostic result
 										value matches {
 											1.0|[local::at0016],
 											2.0|[local::at0017],
@@ -148,7 +159,7 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"Duke-ISCVID infective endocarditis criteria">
-					description = <"Modified Duke criteria for the diagnosis of infective endocarditis.">
+					description = <"Duke-International Society for Cardiovascular Infectious Diseases (ISCVID) infective endocarditis criteria according to 2023 update.  ">
 				>
 				["at0001"] = <
 					text = <"History">
@@ -210,19 +221,19 @@ PCR on a valve or wire without additional clinical or microbiological supporting
 					comment = <"e.g. Local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
 				>
 				["at0015"] = <
-					text = <"Diagnostic category">
+					text = <"Diagnostic result">
 					description = <"">
 				>
 				["at0016"] = <
-					text = <"Definite">
+					text = <"Definite endocarditis">
 					description = <"">
 				>
 				["at0017"] = <
-					text = <"Possible">
+					text = <"Possible endocarditis">
 					description = <"">
 				>
 				["at0018"] = <
-					text = <"Rejected">
+					text = <"Rejected endocarditis">
 					description = <"">
 				>
 				["at0022"] = <
@@ -250,6 +261,15 @@ immunoglobulin G (IgG) titer ≥1:800.
 				["at0027"] = <
 					text = <"IE evidence from surgery">
 					description = <"Evidence of IE documented by direct inspection during heart surgery neither Major Imaging Criteria nor subsequent histologic or microbiologic confirmation.">
+				>
+				["at0028"] = <
+					text = <"Imaging">
+					description = <"Abnormal metabolic activity as detected by 18F-fluorodeoxyglucose PET/CT within 3 mo of implantation of prosthetic valve, ascending aortic graft (with
+concomitant evidence of valve involvement), intracardiac device leads or other prosthetic material.">
+				>
+				["at0031"] = <
+					text = <"Physical examination">
+					description = <"New valvular regurgitation identified on auscultation if echocardiography is not available. Worsening or changing of preexisting murmur not sufficient.">
 				>
 			>
 		>
