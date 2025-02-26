@@ -9,10 +9,10 @@ language
 
 description
 	original_author = <
-		["name"] = <"Olha Nikolaieva">
-		["email"] = <"olha.nikolaieva@usb.ch">
-		["organisation"] = <"University Hospital Basel">
 		["date"] = <"2025-02-13">
+		["name"] = <"Olha Nikolaieva">
+		["organisation"] = <"University Hospital Basel">
+		["email"] = <"olha.nikolaieva@usb.ch">
 	>
 	lifecycle_state = <"unmanaged">
 	details = <
@@ -33,15 +33,15 @@ Not to be used to record creatinine clearance - use openEHR-EHR-OBSERVATION.esti
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
-		["original_namespace"] = <"org.openehr">
-		["original_publisher"] = <"openEHR Foundation">
-		["custodian_namespace"] = <"org.openehr">
 		["references"] = <"Nashef SA, Roques F, Sharples LD, Nilsson J, Smith C, Goldstone AR, Lockowandt U. EuroSCORE II. Eur J Cardiothorac Surg. 2012 Apr;41(4):734-44; discussion 744-5. doi: 10.1093/ejcts/ezs043. Epub 2012 Feb 29. PMID: 22378855.
 
 Chalmers J, Pullan M, Fabri B, McShane J, Shaw M, Mediratta N, Poullis M. Validation of EuroSCORE II in a modern cohort of patients undergoing cardiac surgery. Eur J Cardiothorac Surg. 2013 Apr;43(4):688-94. doi: 10.1093/ejcts/ezs406. Epub 2012 Jul 24. PMID: 22833541.
 
 Kalender M, Adademir T, Tasar M, Ecevit AN, Karaca OG, Salihi S, Buyukbayrak F, Ozkokeli M. Validation of EuroSCORE II risk model for coronary artery bypass surgery in high-risk patients. Kardiochir Torakochirurgia Pol. 2014 Sep;11(3):252-6. doi: 10.5114/kitp.2014.45672. Epub 2014 Sep 28. PMID: 26336431; PMCID: PMC4283878.">
-		["MD5-CAM-1.0.1"] = <"0bcbaaa4703740379d5a994e5697190c">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"a17c14560c18e206d9fd94677984c8b2">
 		["build_uid"] = <"a1e7c9ed-f6e8-35d1-a64e-4740d517e574">
 	>
 
@@ -52,14 +52,145 @@ definition
 				events cardinality matches {1..*; unordered} matches {
 					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
 						data matches {
-							ITEM_TREE[at0003] matches {*}    -- Tree
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0006] occurrences matches {0..1} matches {    -- Age
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::128]>
+												list = <
+													["1"] = <
+														units = <"a">
+														magnitude = <|0.0..150.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {    -- Sex
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0008,    -- Female
+													at0009]    -- Male
+												}
+											}
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {    -- Extracardiac arteriopathy
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {    -- Pulmonary disease
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {    -- Poor mobility
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0013] occurrences matches {0..1} matches {    -- Previous cardiac surgery
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0039] occurrences matches {0..1} matches {    -- DV_BOOLEAN
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {    -- Serum creatinine
+										value matches {
+											1|[local::at0015],
+											2|[local::at0016],
+											3|[local::at0017],
+											4|[local::at0018]
+											C_DV_QUANTITY <
+												
+												list = <
+													["1"] = <
+														units = <"mmol/L">
+														magnitude = <|>=0.0|>
+														units_system = <"http://unitsofmeasure.org">
+														units_display_name = <"mmol/L">
+													>
+													["2"] = <
+														units = <"mg/dL">
+														units_system = <"http://unitsofmeasure.org">
+														units_display_name = <"mg/dL">
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0019] occurrences matches {0..1} matches {    -- Creatinine clearance
+										value matches {
+											1|[local::at0020],
+											2|[local::at0021],
+											3|[local::at0022],
+											4|[local::at0038]
+										}
+									}
+									ELEMENT[at0024] occurrences matches {0..1} matches {    -- Active endocarditis
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0026] occurrences matches {0..1} matches {    -- Critical preoperative state
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0027] occurrences matches {0..1} matches {    -- NYHA class
+										value matches {
+											1|[local::at0028],
+											2|[local::at0029],
+											3|[local::at0030],
+											4|[local::at0031]
+										}
+									}
+									ELEMENT[at0032] occurrences matches {0..1} matches {    -- CCS class 4 angina
+										value matches {
+											DV_BOOLEAN matches {*}
+										}
+									}
+									ELEMENT[at0033] occurrences matches {0..1} matches {    -- Left ventricle ejection fraction
+										value matches {
+											1|[local::at0034],
+											2|[local::at0035],
+											3|[local::at0036],
+											4|[local::at0037]
+											C_DV_QUANTITY <
+												property = <[openehr::507]>
+												list = <
+													["1"] = <
+														units = <"%">
+														magnitude = <|0.0..100.0|>
+													>
+												>
+											>
+										}
+									}
+								}
+							}
 						}
 					}
 				}
 			}
 		}
 		protocol matches {
-			ITEM_TREE[at0004] matches {*}    -- Item tree
+			ITEM_TREE[at0004] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0005] occurrences matches {0..1} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
 		}
 	}
 
@@ -86,6 +217,143 @@ ontology
 				["at0004"] = <
 					text = <"Item tree">
 					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
+					comment = <"e.g. Local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+				["at0006"] = <
+					text = <"Age">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Sex">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Female">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Male">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Extracardiac arteriopathy">
+					description = <"One or more of the following:
+• claudication;
+• carotid occlusion or >50% stenosis (North American Symptomatic Carotid Endarterectomy Trial criteria);
+• amputation for arterial disease;
+• previous or planned intervention on the abdominal aorta, limb arteries or carotids.">
+				>
+				["at0011"] = <
+					text = <"Pulmonary disease">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Poor mobility">
+					description = <"Severe impairment of mobility secondary to musculoskeletal or neurological dysfunction.">
+				>
+				["at0013"] = <
+					text = <"Previous cardiac surgery">
+					description = <"One or more previous major cardiac operation involving opening the pericardium.">
+				>
+				["at0014"] = <
+					text = <"Serum creatinine">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"> 90-110 μmol/l">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"> 110-130 μmol/l">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"> 130-200 μmol/l">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"> 200 μmol/l">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Creatinine clearance">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <">85 mL/min">
+					description = <"Normal">
+				>
+				["at0021"] = <
+					text = <"> 50–85 mL/min">
+					description = <"Moderately impaired">
+				>
+				["at0022"] = <
+					text = <"≤ 50">
+					description = <"Severely impaired">
+				>
+				["at0024"] = <
+					text = <"Active endocarditis">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Critical preoperative state">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"NYHA class">
+					description = <"New York Heart Association (NYHA) functional classification for heart failure.">
+				>
+				["at0028"] = <
+					text = <"Class I">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"Class II">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"Class III">
+					description = <"">
+				>
+				["at0031"] = <
+					text = <"Class IV">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"CCS class 4 angina">
+					description = <"Inability to carry on any physical activity without discomfort; anginal syndrome may be present at rest.">
+				>
+				["at0033"] = <
+					text = <"Left ventricle ejection fraction">
+					description = <"Left ventricle ejection fraction">
+				>
+				["at0034"] = <
+					text = <"51% or more">
+					description = <"Good">
+				>
+				["at0035"] = <
+					text = <"31-50%">
+					description = <"Moderate">
+				>
+				["at0036"] = <
+					text = <"21-30%">
+					description = <"Poor">
+				>
+				["at0037"] = <
+					text = <"20% or less">
+					description = <"Very poor">
+				>
+				["at0038"] = <
+					text = <"On dialysis (regardless of serum creatinine)">
+					description = <"">
+				>
+				["at0039"] = <
+					text = <"DV_BOOLEAN">
+					description = <"">
 				>
 			>
 		>
