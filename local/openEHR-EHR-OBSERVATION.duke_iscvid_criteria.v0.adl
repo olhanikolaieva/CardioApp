@@ -34,7 +34,7 @@ Fowler VG, Durack DT, Selton-Suty C, Athan E, Bayer AS, Chamis AL, Dahl A, DiBer
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"0331c9cecc13b8dd6e62d0c12f9c7b5d">
+		["MD5-CAM-1.0.1"] = <"fb9cfe7aa3c0a482e0d55e76afa582e8">
 		["build_uid"] = <"3ce8af06-65b7-3ff9-8f62-c29854bd892f">
 	>
 
@@ -141,7 +141,7 @@ definition
 											}
 										}
 									}
-									ELEMENT[at0015] occurrences matches {0..1} matches {    -- Diagnostic result
+									ELEMENT[at0015] occurrences matches {0..1} matches {    -- Duke ISCVID IE result
 										value matches {
 											1.0|[local::at0016],
 											2.0|[local::at0017],
@@ -235,7 +235,7 @@ PCR on a valve or wire without additional clinical or microbiological supporting
 					comment = <"e.g. Local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
 				>
 				["at0015"] = <
-					text = <"Diagnostic result">
+					text = <"Duke ISCVID IE result">
 					description = <"Result based on met Duke-ISCVID criteria. ">
 				>
 				["at0016"] = <
