@@ -20,7 +20,7 @@ description
 			language = <[ISO_639-1::en]>
 			purpose = <"To record the results for each component parameter and diagnostic result for the Duke ISCVID infective endocarditis criteria.">
 			keywords = <"Duke criteria, ISCVID, infective endocarditis, IE, cardiology, PET/CT, echocardiography.", ...>
-			use = <"Use to record the results for each component parameter and diagnostic result for the Duke-ISCVID infective endocarditis criteria. Most data items are assigned a repeating cardinality (0..*), enabling users to document multiple instances of each criterion for more detailed granularity. For cases where only a single value is needed, the cardinality should be constrained to a single optional (0..1).">
+			use = <"Use to record the results for each component parameter and diagnostic result for the Duke ISCVID infective endocarditis criteria. Most data items are assigned a repeating cardinality (0..*), enabling users to document multiple instances of each criterion for more detailed granularity. For cases where only a single value is needed, the cardinality should be constrained to a single optional (0..1).">
 		>
 	>
 	other_details = <
@@ -34,7 +34,7 @@ Fowler VG, Durack DT, Selton-Suty C, Athan E, Bayer AS, Chamis AL, Dahl A, DiBer
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"aa69f923b0efb9013c9a1e5c4bdefd95">
+		["MD5-CAM-1.0.1"] = <"9184d0ec620053a36a84dea1127cc82d">
 		["build_uid"] = <"3ce8af06-65b7-3ff9-8f62-c29854bd892f">
 	>
 
@@ -178,7 +178,7 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"Duke ISCVID infective endocarditis criteria">
-					description = <"Duke International Society for Cardiovascular Infectious Diseases (ISCVID) infective endocarditis criteria according to 2023 update.  ">
+					description = <"Duke International Society for Cardiovascular Infectious Diseases (ISCVID) infective endocarditis criteria according to 2023 update. Backward compatible with the modified Duke criteria for infective endocarditis.">
 				>
 				["at0001"] = <
 					text = <"History">
