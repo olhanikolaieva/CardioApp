@@ -34,7 +34,7 @@ Fowler VG, Durack DT, Selton-Suty C, Athan E, Bayer AS, Chamis AL, Dahl A, DiBer
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"61e93da17c86fc9c2ae89f09e4f37b1b">
+		["MD5-CAM-1.0.1"] = <"aa69f923b0efb9013c9a1e5c4bdefd95">
 		["build_uid"] = <"3ce8af06-65b7-3ff9-8f62-c29854bd892f">
 	>
 
@@ -143,10 +143,14 @@ definition
 									}
 									ELEMENT[at0015] occurrences matches {0..1} matches {    -- Duke ISCVID IE conclusion
 										value matches {
-											1.0|[local::at0016],
-											2.0|[local::at0017],
-											3.0|[local::at0018]
-											DV_CODED_TEXT matches {*}
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0035,    -- Definite endocarditis
+													at0036,    -- Possible endocarditis
+													at0037]    -- Rejected endocarditis
+												}
+											}
 										}
 									}
 								}
@@ -239,18 +243,6 @@ PCR on a valve or wire without additional clinical or microbiological supporting
 					text = <"Duke ISCVID IE conclusion">
 					description = <"Result based on met Duke-ISCVID criteria. ">
 				>
-				["at0016"] = <
-					text = <"Definite endocarditis">
-					description = <"">
-				>
-				["at0017"] = <
-					text = <"Possible endocarditis">
-					description = <"">
-				>
-				["at0018"] = <
-					text = <"Rejected endocarditis">
-					description = <"">
-				>
 				["at0022"] = <
 					text = <"Microbiologic">
 					description = <"">
@@ -297,6 +289,18 @@ concomitant evidence of valve involvement), intracardiac device leads or other p
 				["at0034"] = <
 					text = <"Pathologic lesions">
 					description = <"Vegetation or intracardiac abscess confirmed by histologic examination showing active endocarditis.">
+				>
+				["at0035"] = <
+					text = <"Definite endocarditis">
+					description = <"">
+				>
+				["at0036"] = <
+					text = <"Possible endocarditis">
+					description = <"">
+				>
+				["at0037"] = <
+					text = <"Rejected endocarditis">
+					description = <"">
 				>
 			>
 		>
