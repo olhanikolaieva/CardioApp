@@ -41,7 +41,7 @@ Kalender M, Adademir T, Tasar M, Ecevit AN, Karaca OG, Salihi S, Buyukbayrak F, 
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"a17c14560c18e206d9fd94677984c8b2">
+		["MD5-CAM-1.0.1"] = <"495e01b1fc93089c14c094b43c2b6969">
 		["build_uid"] = <"a1e7c9ed-f6e8-35d1-a64e-4740d517e574">
 	>
 
@@ -54,125 +54,156 @@ definition
 						data matches {
 							ITEM_TREE[at0003] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
-									ELEMENT[at0006] occurrences matches {0..1} matches {    -- Age
-										value matches {
-											C_DV_QUANTITY <
-												property = <[openehr::128]>
-												list = <
-													["1"] = <
-														units = <"a">
-														magnitude = <|0.0..150.0|>
+									CLUSTER[at0050] occurrences matches {0..1} matches {    -- Patient-related factors
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0006] occurrences matches {0..1} matches {    -- Age
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::128]>
+														list = <
+															["1"] = <
+																units = <"a">
+																magnitude = <|0.0..150.0|>
+															>
+														>
 													>
-												>
-											>
-										}
-									}
-									ELEMENT[at0007] occurrences matches {0..1} matches {    -- Sex
-										value matches {
-											DV_CODED_TEXT matches {
-												defining_code matches {
-													[local::
-													at0008,    -- Female
-													at0009]    -- Male
+												}
+											}
+											ELEMENT[at0007] occurrences matches {0..1} matches {    -- Sex
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0008,    -- Female
+															at0009]    -- Male
+														}
+													}
+												}
+											}
+											ELEMENT[at0010] occurrences matches {0..1} matches {    -- Extracardiac arteriopathy
+												value matches {
+													DV_BOOLEAN matches {*}
+												}
+											}
+											ELEMENT[at0011] occurrences matches {0..1} matches {    -- Chronic pulmonary dysfunction
+												value matches {
+													DV_BOOLEAN matches {*}
+												}
+											}
+											ELEMENT[at0012] occurrences matches {0..1} matches {    -- Neurological or musculoskeletal dysfunction
+												value matches {
+													DV_BOOLEAN matches {*}
+												}
+											}
+											ELEMENT[at0013] occurrences matches {0..1} matches {    -- Previous cardiac surgery
+												value matches {
+													DV_BOOLEAN matches {*}
+												}
+											}
+											ELEMENT[at0014] occurrences matches {0..1} matches {    -- Serum creatinine
+												value matches {
+													1|[local::at0015],
+													2|[local::at0016],
+													3|[local::at0017],
+													4|[local::at0018]
+													C_DV_QUANTITY <
+														
+														list = <
+															["1"] = <
+																units = <"mmol/L">
+																magnitude = <|>=0.0|>
+																units_system = <"http://unitsofmeasure.org">
+																units_display_name = <"mmol/L">
+															>
+															["2"] = <
+																units = <"mg/dL">
+																units_system = <"http://unitsofmeasure.org">
+																units_display_name = <"mg/dL">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0019] occurrences matches {0..1} matches {    -- Creatinine clearance
+												value matches {
+													1|[local::at0020],
+													2|[local::at0021],
+													3|[local::at0022],
+													4|[local::at0038]
+												}
+											}
+											ELEMENT[at0039] occurrences matches {0..1} matches {    -- Insulin-dependent diabetes mellitus
+												value matches {
+													DV_BOOLEAN matches {*}
+												}
+											}
+											ELEMENT[at0024] occurrences matches {0..1} matches {    -- Active endocarditis
+												value matches {
+													DV_BOOLEAN matches {*}
+												}
+											}
+											ELEMENT[at0026] occurrences matches {0..1} matches {    -- Critical preoperative state
+												value matches {
+													DV_BOOLEAN matches {*}
 												}
 											}
 										}
 									}
-									ELEMENT[at0010] occurrences matches {0..1} matches {    -- Extracardiac arteriopathy
-										value matches {
-											DV_BOOLEAN matches {*}
+									CLUSTER[at0051] occurrences matches {0..1} matches {    -- Cardiac-related factors
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0032] occurrences matches {0..1} matches {    -- CCS class 4 angina
+												value matches {
+													DV_BOOLEAN matches {*}
+												}
+											}
+											ELEMENT[at0027] occurrences matches {0..1} matches {    -- NYHA class
+												value matches {
+													1|[local::at0028],
+													2|[local::at0029],
+													3|[local::at0030],
+													4|[local::at0031]
+													0.0|[local::at0046],
+													0.1070545|[local::at0047],
+													0.10705451|[local::at0048],
+													0.107054511|[local::at0049]
+												}
+											}
+											ELEMENT[at0033] occurrences matches {0..1} matches {    -- Left ventricle ejection fraction
+												value matches {
+													1|[local::at0034],
+													2|[local::at0035],
+													3|[local::at0036],
+													4|[local::at0037]
+												}
+											}
+											ELEMENT[at0040] occurrences matches {0..1} matches {    -- Recent myocardial infarction
+												value matches {
+													DV_BOOLEAN matches {*}
+												}
+											}
+											ELEMENT[at0041] occurrences matches {0..1} matches {    -- Systolic pulmonary artery pressure
+												value matches {
+													1|[local::at0058],
+													2|[local::at0059],
+													3|[local::at0060]
+												}
+											}
 										}
 									}
-									ELEMENT[at0011] occurrences matches {0..1} matches {    -- Pulmonary disease
-										value matches {
-											DV_BOOLEAN matches {*}
+									CLUSTER[at0052] occurrences matches {0..1} matches {    -- Operation-related factors
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0042] occurrences matches {0..1} matches {    -- Urgency
+												value matches {
+													DV_ORDINAL matches {*}
+												}
+											}
+											ELEMENT[at0044] occurrences matches {0..1} matches {*}    -- Thoracic aorta
+											ELEMENT[at0043] occurrences matches {0..1} matches {*}    -- Weight of procedure
 										}
 									}
-									ELEMENT[at0012] occurrences matches {0..1} matches {    -- Poor mobility
+									ELEMENT[at0053] occurrences matches {0..1} matches {    -- Total score
 										value matches {
-											DV_BOOLEAN matches {*}
-										}
-									}
-									ELEMENT[at0013] occurrences matches {0..1} matches {    -- Previous cardiac surgery
-										value matches {
-											DV_BOOLEAN matches {*}
-										}
-									}
-									ELEMENT[at0039] occurrences matches {0..1} matches {    -- DV_BOOLEAN
-										value matches {
-											DV_BOOLEAN matches {*}
-										}
-									}
-									ELEMENT[at0014] occurrences matches {0..1} matches {    -- Serum creatinine
-										value matches {
-											1|[local::at0015],
-											2|[local::at0016],
-											3|[local::at0017],
-											4|[local::at0018]
-											C_DV_QUANTITY <
-												
-												list = <
-													["1"] = <
-														units = <"mmol/L">
-														magnitude = <|>=0.0|>
-														units_system = <"http://unitsofmeasure.org">
-														units_display_name = <"mmol/L">
-													>
-													["2"] = <
-														units = <"mg/dL">
-														units_system = <"http://unitsofmeasure.org">
-														units_display_name = <"mg/dL">
-													>
-												>
-											>
-										}
-									}
-									ELEMENT[at0019] occurrences matches {0..1} matches {    -- Creatinine clearance
-										value matches {
-											1|[local::at0020],
-											2|[local::at0021],
-											3|[local::at0022],
-											4|[local::at0038]
-										}
-									}
-									ELEMENT[at0024] occurrences matches {0..1} matches {    -- Active endocarditis
-										value matches {
-											DV_BOOLEAN matches {*}
-										}
-									}
-									ELEMENT[at0026] occurrences matches {0..1} matches {    -- Critical preoperative state
-										value matches {
-											DV_BOOLEAN matches {*}
-										}
-									}
-									ELEMENT[at0027] occurrences matches {0..1} matches {    -- NYHA class
-										value matches {
-											1|[local::at0028],
-											2|[local::at0029],
-											3|[local::at0030],
-											4|[local::at0031]
-										}
-									}
-									ELEMENT[at0032] occurrences matches {0..1} matches {    -- CCS class 4 angina
-										value matches {
-											DV_BOOLEAN matches {*}
-										}
-									}
-									ELEMENT[at0033] occurrences matches {0..1} matches {    -- Left ventricle ejection fraction
-										value matches {
-											1|[local::at0034],
-											2|[local::at0035],
-											3|[local::at0036],
-											4|[local::at0037]
-											C_DV_QUANTITY <
-												property = <[openehr::507]>
-												list = <
-													["1"] = <
-														units = <"%">
-														magnitude = <|0.0..100.0|>
-													>
-												>
-											>
+											DV_QUANTITY matches {*}
 										}
 									}
 								}
@@ -248,12 +279,13 @@ ontology
 • previous or planned intervention on the abdominal aorta, limb arteries or carotids.">
 				>
 				["at0011"] = <
-					text = <"Pulmonary disease">
+					text = <"Chronic pulmonary dysfunction">
 					description = <"">
 				>
 				["at0012"] = <
-					text = <"Poor mobility">
+					text = <"Neurological or musculoskeletal dysfunction">
 					description = <"Severe impairment of mobility secondary to musculoskeletal or neurological dysfunction.">
+					comment = <"Poor mobility -  neurological or musculoskeletal dysfunction severely affecting mobility.">
 				>
 				["at0013"] = <
 					text = <"Previous cardiac surgery">
@@ -281,7 +313,8 @@ ontology
 				>
 				["at0019"] = <
 					text = <"Creatinine clearance">
-					description = <"">
+					description = <"Renal dysfunction is assessed by CC as estimated using
+the Cockcroft–Gault formula.">
 				>
 				["at0020"] = <
 					text = <">85 mL/min">
@@ -297,11 +330,17 @@ ontology
 				>
 				["at0024"] = <
 					text = <"Active endocarditis">
-					description = <"">
+					description = <"Patients still on antibiotic treatment for endocarditis at the time of surgery.">
 				>
 				["at0026"] = <
 					text = <"Critical preoperative state">
-					description = <"">
+					description = <"Any one or more of the following occurring preoperatively in the same hospital admission as the operation:
+• ventricular tachycardia or fibrillation or aborted sudden death;
+• cardiac massage;
+• ventilation before arrival in the anaesthetic room;
+• inotropes;
+• intra-aortic balloon counterpulsation or ventricular-assist device before arrival in the anaesthetic room;
+• acute renal failure (anuria or oliguria <10 ml/h).">
 				>
 				["at0027"] = <
 					text = <"NYHA class">
@@ -352,7 +391,71 @@ ontology
 					description = <"">
 				>
 				["at0039"] = <
-					text = <"DV_BOOLEAN">
+					text = <"Insulin-dependent diabetes mellitus">
+					description = <"">
+				>
+				["at0040"] = <
+					text = <"Recent myocardial infarction">
+					description = <"Within 90 days before operation.">
+				>
+				["at0041"] = <
+					text = <"Systolic pulmonary artery pressure">
+					description = <"">
+				>
+				["at0042"] = <
+					text = <"Urgency">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"Weight of procedure">
+					description = <"">
+				>
+				["at0044"] = <
+					text = <"Thoracic aorta">
+					description = <"">
+				>
+				["at0046"] = <
+					text = <"Class I">
+					description = <"">
+				>
+				["at0047"] = <
+					text = <"Class II">
+					description = <"">
+				>
+				["at0048"] = <
+					text = <"Class III">
+					description = <"">
+				>
+				["at0049"] = <
+					text = <"Class IV">
+					description = <"">
+				>
+				["at0050"] = <
+					text = <"Patient-related factors">
+					description = <"">
+				>
+				["at0051"] = <
+					text = <"Cardiac-related factors">
+					description = <"">
+				>
+				["at0052"] = <
+					text = <"Operation-related factors">
+					description = <"">
+				>
+				["at0053"] = <
+					text = <"Total score">
+					description = <"">
+				>
+				["at0058"] = <
+					text = <"≤ 30 mmHg">
+					description = <"">
+				>
+				["at0059"] = <
+					text = <"31–55 mmHg">
+					description = <"">
+				>
+				["at0060"] = <
+					text = <"≥55 mmHg">
 					description = <"">
 				>
 			>
