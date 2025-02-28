@@ -34,7 +34,7 @@ Fowler VG, Durack DT, Selton-Suty C, Athan E, Bayer AS, Chamis AL, Dahl A, DiBer
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"25224d49c12d1fb03b871305feddbfa0">
+		["MD5-CAM-1.0.1"] = <"5402aab4fea3b9d209d26f26dde3b87d">
 		["build_uid"] = <"3ce8af06-65b7-3ff9-8f62-c29854bd892f">
 	>
 
@@ -241,7 +241,7 @@ PCR on a valve or wire without additional clinical or microbiological supporting
 				>
 				["at0015"] = <
 					text = <"Duke-ISCVID IE conclusion">
-					description = <"Result based on met Duke-ISCVID criteria. ">
+					description = <"Result based on met Duke-ISCVID IE criteria. ">
 				>
 				["at0022"] = <
 					text = <"Microbiologic">
