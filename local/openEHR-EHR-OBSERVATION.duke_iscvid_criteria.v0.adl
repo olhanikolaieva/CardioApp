@@ -18,9 +18,9 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"To record the results for each component parameter and diagnostic result for the Duke ISCVID infective endocarditis criteria.">
+			purpose = <"To record the results for each component parameter and diagnostic result for the Duke-ISCVID infective endocarditis criteria.">
 			keywords = <"Duke criteria, ISCVID, infective endocarditis, IE, cardiology, PET/CT, echocardiography.", ...>
-			use = <"Use to record the results for each component parameter and diagnostic result for the Duke ISCVID infective endocarditis criteria. Most data items are assigned a repeating cardinality (0..*), enabling users to document multiple instances of each criterion for more detailed granularity. For cases where only a single value is needed, the cardinality should be constrained to a single optional (0..1).">
+			use = <"Use to record the results for each component parameter and diagnostic result for the Duke-ISCVID infective endocarditis criteria. Most data items are assigned a repeating cardinality (0..*), enabling users to document multiple instances of each criterion for more detailed granularity. For cases where only a single value is needed, the cardinality should be constrained to a single optional (0..1).">
 		>
 	>
 	other_details = <
@@ -34,12 +34,12 @@ Fowler VG, Durack DT, Selton-Suty C, Athan E, Bayer AS, Chamis AL, Dahl A, DiBer
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"d3ebcf93656f6c63af98e8d06fee9244">
+		["MD5-CAM-1.0.1"] = <"25224d49c12d1fb03b871305feddbfa0">
 		["build_uid"] = <"3ce8af06-65b7-3ff9-8f62-c29854bd892f">
 	>
 
 definition
-	OBSERVATION[at0000] matches {    -- Duke ISCVID infective endocarditis criteria
+	OBSERVATION[at0000] matches {    -- Duke-ISCVID infective endocarditis criteria
 		data matches {
 			HISTORY[at0001] matches {    -- History
 				events cardinality matches {1..*; unordered} matches {
@@ -141,7 +141,7 @@ definition
 											}
 										}
 									}
-									ELEMENT[at0015] occurrences matches {0..1} matches {    -- Duke ISCVID IE conclusion
+									ELEMENT[at0015] occurrences matches {0..1} matches {    -- Duke-ISCVID IE conclusion
 										value matches {
 											DV_CODED_TEXT matches {
 												defining_code matches {
@@ -177,8 +177,8 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"Duke ISCVID infective endocarditis criteria">
-					description = <"Duke International Society for Cardiovascular Infectious Diseases (ISCVID) infective endocarditis criteria according to 2023 update. Backward compatible with the modified Duke criteria for infective endocarditis.">
+					text = <"Duke-ISCVID infective endocarditis criteria">
+					description = <"Duke-International Society for Cardiovascular Infectious Diseases (ISCVID) infective endocarditis criteria according to 2023 update. Backward compatible with the modified Duke criteria for infective endocarditis.">
 				>
 				["at0001"] = <
 					text = <"History">
@@ -240,7 +240,7 @@ PCR on a valve or wire without additional clinical or microbiological supporting
 					comment = <"e.g. Local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
 				>
 				["at0015"] = <
-					text = <"Duke ISCVID IE conclusion">
+					text = <"Duke-ISCVID IE conclusion">
 					description = <"Result based on met Duke-ISCVID criteria. ">
 				>
 				["at0022"] = <
