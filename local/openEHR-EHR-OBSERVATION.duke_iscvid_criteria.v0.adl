@@ -34,7 +34,7 @@ Fowler VG, Durack DT, Selton-Suty C, Athan E, Bayer AS, Chamis AL, Dahl A, DiBer
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"9184d0ec620053a36a84dea1127cc82d">
+		["MD5-CAM-1.0.1"] = <"09af727070a9b98fd3114f3f9f3237a6">
 		["build_uid"] = <"3ce8af06-65b7-3ff9-8f62-c29854bd892f">
 	>
 
@@ -65,7 +65,7 @@ definition
 										items cardinality matches {1..*; unordered} matches {
 											CLUSTER[at0022] occurrences matches {0..1} matches {    -- Microbiologic
 												items cardinality matches {1..*; unordered} matches {
-													ELEMENT[at0006] occurrences matches {0..*} matches {    -- Positive blood culture
+													ELEMENT[at0006] occurrences matches {0..*} matches {    -- Positive blood cultures
 														value matches {
 															DV_BOOLEAN matches {*}
 														}
@@ -84,7 +84,7 @@ definition
 															DV_BOOLEAN matches {*}
 														}
 													}
-													ELEMENT[at0026] occurrences matches {0..*} matches {    -- PET/CT imaging
+													ELEMENT[at0026] occurrences matches {0..*} matches {    -- [18F]FDG PET/CT imaging
 														value matches {
 															DV_BOOLEAN matches {*}
 														}
@@ -201,7 +201,7 @@ ontology
 					description = <"">
 				>
 				["at0006"] = <
-					text = <"Positive blood culture">
+					text = <"Positive blood cultures">
 					description = <"Microorganisms that commonly cause IE isolated from 2 or more separate blood culture sets (Typical); or microorganisms that occasionally or rarely cause IE isolated from 3 or more separate blood culture sets (Nontypical).">
 				>
 				["at0007"] = <
@@ -262,7 +262,7 @@ immunoglobulin G (IgG) titer ≥1:800.
 ">
 				>
 				["at0026"] = <
-					text = <"PET/CT imaging">
+					text = <"[18F]FDG PET/CT imaging">
 					description = <"Positron emission computed tomography with 18F-fluorodeoxyglucose. Abnormal metabolic activity involving a native or prosthetic valve, ascending aortic graft (with concomitant evidence of valve involvement), intracardiac device leads or other prosthetic material.">
 				>
 				["at0027"] = <
@@ -284,11 +284,11 @@ concomitant evidence of valve involvement), intracardiac device leads or other p
 				>
 				["at0033"] = <
 					text = <"Microorganism identification">
-					description = <"Microorganisms demonstrated by culture or histologic examination of a vegetation, a vegetation that has embolized, or an intracardiac abscess specimen are identified in appropriate samples by PCR, amplicon or metagenomic sequencing, or in situ hybridization.">
+					description = <"Microorganisms identified in the context of clinical signs of active endocarditis in a vegetation; from cardiac tissue; from an explanted prosthetic valve or sewing ring; from an ascending aortic graft (with concomitant evidence of valve involvement); from an endovascular intracardiac implantable electronic device (CIED); or from an arterial embolus.">
 				>
 				["at0034"] = <
 					text = <"Pathologic lesions">
-					description = <"Vegetation or intracardiac abscess confirmed by histologic examination showing active endocarditis.">
+					description = <"Active endocarditis (may be acute or subacute/chronic) identified in or on a vegetation; from cardiac tissue; from an explanted prosthetic valve or sewing ring; from an ascending aortic graft (with concomitant evidence of valve involvement); from a CIED; or from an arterial embolus.">
 				>
 				["at0035"] = <
 					text = <"Definite endocarditis">
