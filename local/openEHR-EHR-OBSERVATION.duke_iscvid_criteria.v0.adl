@@ -34,7 +34,7 @@ Fowler VG, Durack DT, Selton-Suty C, Athan E, Bayer AS, Chamis AL, Dahl A, DiBer
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"09af727070a9b98fd3114f3f9f3237a6">
+		["MD5-CAM-1.0.1"] = <"d3ebcf93656f6c63af98e8d06fee9244">
 		["build_uid"] = <"3ce8af06-65b7-3ff9-8f62-c29854bd892f">
 	>
 
@@ -54,7 +54,7 @@ definition
 													DV_BOOLEAN matches {*}
 												}
 											}
-											ELEMENT[at0034] occurrences matches {0..1} matches {    -- Pathologic lesions
+											ELEMENT[at0034] occurrences matches {0..1} matches {    -- Histopathologic findings
 												value matches {
 													DV_BOOLEAN matches {*}
 												}
@@ -228,7 +228,7 @@ ontology
 					text = <"Microbiological evidence">
 					description = <"Positive blood cultures for a microorganism consistent with IE but not meeting the requirements for major criterion; or positive culture, PCR, or other nucleic acid based test (amplicon or shotgun sequencing, in situ hybridization) for an organism consistent
 with IE from a sterile body site other than cardiac tissue, cardiac prosthesis, or arterial embolus; or a single finding of a skin bacterium by
-PCR on a valve or wire without additional clinical or microbiological supporting evidence; or">
+PCR on a valve or wire without additional clinical or microbiological supporting evidence.">
 				>
 				["at0013"] = <
 					text = <"Item tree">
@@ -257,7 +257,7 @@ PCR on a valve or wire without additional clinical or microbiological supporting
 				>
 				["at0025"] = <
 					text = <"Positive laboratory tests">
-					description = <"Positive polymerase chain reaction (PCR) or other nucleic acid-based techniquec for Coxiella burnetii, Bartonella species, or Tropheryma whipplei from blood; or Coxiella burnetii antiphase I immunoglobulin G (IgG) antibody titer >1:800, or isolated from a single blood culture; or indirect immunofluorescence assays (IFA) for detection of IgM and IgG antibodies to Bartonella henselae or Bartonella quintana with
+					description = <"Positive polymerase chain reaction (PCR) or other nucleic acid-based technique for Coxiella burnetii, Bartonella species, or Tropheryma whipplei from blood; or Coxiella burnetii antiphase I immunoglobulin G (IgG) antibody titer >1:800, or isolated from a single blood culture; or indirect immunofluorescence assays (IFA) for detection of IgM and IgG antibodies to Bartonella henselae or Bartonella quintana with
 immunoglobulin G (IgG) titer ≥1:800.
 ">
 				>
@@ -287,7 +287,7 @@ concomitant evidence of valve involvement), intracardiac device leads or other p
 					description = <"Microorganisms identified in the context of clinical signs of active endocarditis in a vegetation; from cardiac tissue; from an explanted prosthetic valve or sewing ring; from an ascending aortic graft (with concomitant evidence of valve involvement); from an endovascular intracardiac implantable electronic device (CIED); or from an arterial embolus.">
 				>
 				["at0034"] = <
-					text = <"Pathologic lesions">
+					text = <"Histopathologic findings">
 					description = <"Active endocarditis (may be acute or subacute/chronic) identified in or on a vegetation; from cardiac tissue; from an explanted prosthetic valve or sewing ring; from an ascending aortic graft (with concomitant evidence of valve involvement); from a CIED; or from an arterial embolus.">
 				>
 				["at0035"] = <
