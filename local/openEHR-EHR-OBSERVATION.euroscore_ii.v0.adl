@@ -41,7 +41,7 @@ Kalender M, Adademir T, Tasar M, Ecevit AN, Karaca OG, Salihi S, Buyukbayrak F, 
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"495e01b1fc93089c14c094b43c2b6969">
+		["MD5-CAM-1.0.1"] = <"9ed66eb4bc36ead8c05c3961a3634728">
 		["build_uid"] = <"a1e7c9ed-f6e8-35d1-a64e-4740d517e574">
 	>
 
@@ -69,7 +69,7 @@ definition
 													>
 												}
 											}
-											ELEMENT[at0007] occurrences matches {0..1} matches {    -- Sex
+											ELEMENT[at0007] occurrences matches {0..1} matches {    -- Biological sex
 												value matches {
 													DV_CODED_TEXT matches {
 														defining_code matches {
@@ -100,36 +100,17 @@ definition
 													DV_BOOLEAN matches {*}
 												}
 											}
-											ELEMENT[at0014] occurrences matches {0..1} matches {    -- Serum creatinine
-												value matches {
-													1|[local::at0015],
-													2|[local::at0016],
-													3|[local::at0017],
-													4|[local::at0018]
-													C_DV_QUANTITY <
-														
-														list = <
-															["1"] = <
-																units = <"mmol/L">
-																magnitude = <|>=0.0|>
-																units_system = <"http://unitsofmeasure.org">
-																units_display_name = <"mmol/L">
-															>
-															["2"] = <
-																units = <"mg/dL">
-																units_system = <"http://unitsofmeasure.org">
-																units_display_name = <"mg/dL">
-															>
-														>
-													>
-												}
-											}
 											ELEMENT[at0019] occurrences matches {0..1} matches {    -- Creatinine clearance
 												value matches {
-													1|[local::at0020],
-													2|[local::at0021],
-													3|[local::at0022],
-													4|[local::at0038]
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0072,    -- CC > 85 ml/min
+															at0073,    -- CC 50–85 ml/min
+															at0074,    -- CC < 50 ml/min
+															at0075]    -- On dialysis (regardless of serum creatinine)
+														}
+													}
 												}
 											}
 											ELEMENT[at0039] occurrences matches {0..1} matches {    -- Insulin-dependent diabetes mellitus
@@ -158,22 +139,28 @@ definition
 											}
 											ELEMENT[at0027] occurrences matches {0..1} matches {    -- NYHA class
 												value matches {
-													1|[local::at0028],
-													2|[local::at0029],
-													3|[local::at0030],
-													4|[local::at0031]
-													0.0|[local::at0046],
-													0.1070545|[local::at0047],
-													0.10705451|[local::at0048],
-													0.107054511|[local::at0049]
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0061,    -- Class I
+															at0062,    -- Class II
+															at0063,    -- Class III
+															at0064]    -- Class IV
+														}
+													}
 												}
 											}
 											ELEMENT[at0033] occurrences matches {0..1} matches {    -- Left ventricle ejection fraction
 												value matches {
-													1|[local::at0034],
-													2|[local::at0035],
-													3|[local::at0036],
-													4|[local::at0037]
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0065,    -- 51% or more
+															at0066,    -- 31-50%
+															at0067,    -- 21-30%
+															at0068]    -- 20% or less
+														}
+													}
 												}
 											}
 											ELEMENT[at0040] occurrences matches {0..1} matches {    -- Recent myocardial infarction
@@ -181,27 +168,50 @@ definition
 													DV_BOOLEAN matches {*}
 												}
 											}
-											ELEMENT[at0041] occurrences matches {0..1} matches {    -- Systolic pulmonary artery pressure
+											ELEMENT[at0041] occurrences matches {0..1} matches {    -- Pulmonary artery systolic pressure
 												value matches {
-													1|[local::at0058],
-													2|[local::at0059],
-													3|[local::at0060]
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0069,    -- ≤ 30 mmHg
+															at0070,    -- 31–55 mmHg
+															at0071]    -- ≥ 56 mmHg
+														}
+													}
 												}
 											}
 										}
 									}
 									CLUSTER[at0052] occurrences matches {0..1} matches {    -- Operation-related factors
 										items cardinality matches {1..*; unordered} matches {
-											ELEMENT[at0042] occurrences matches {0..1} matches {    -- Urgency
+											ELEMENT[at0042] occurrences matches {0..1} matches {    -- Urgency of operation
 												value matches {
-													DV_ORDINAL matches {*}
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0076,    -- Elective
+															at0077,    -- Urgent
+															at0078,    -- Emergency
+															at0079]    -- Salvage
+														}
+													}
 												}
 											}
-											ELEMENT[at0044] occurrences matches {0..1} matches {*}    -- Thoracic aorta
-											ELEMENT[at0043] occurrences matches {0..1} matches {*}    -- Weight of procedure
+											ELEMENT[at0044] occurrences matches {0..1} matches {    -- Thoracic aorta surgery
+												value matches {
+													DV_BOOLEAN matches {*}
+												}
+											}
+											ELEMENT[at0043] occurrences matches {0..1} matches {    -- Weight of procedure
+												value matches {
+													1|[local::at0080],
+													2|[local::at0081],
+													3|[local::at0082]
+												}
+											}
 										}
 									}
-									ELEMENT[at0053] occurrences matches {0..1} matches {    -- Total score
+									ELEMENT[at0053] occurrences matches {0..1} matches {    -- Predicted mortality by EuroSCORE II
 										value matches {
 											DV_QUANTITY matches {*}
 										}
@@ -259,7 +269,7 @@ ontology
 					description = <"">
 				>
 				["at0007"] = <
-					text = <"Sex">
+					text = <"Biological sex">
 					description = <"">
 				>
 				["at0008"] = <
@@ -291,42 +301,10 @@ ontology
 					text = <"Previous cardiac surgery">
 					description = <"One or more previous major cardiac operation involving opening the pericardium.">
 				>
-				["at0014"] = <
-					text = <"Serum creatinine">
-					description = <"">
-				>
-				["at0015"] = <
-					text = <"> 90-110 μmol/l">
-					description = <"">
-				>
-				["at0016"] = <
-					text = <"> 110-130 μmol/l">
-					description = <"">
-				>
-				["at0017"] = <
-					text = <"> 130-200 μmol/l">
-					description = <"">
-				>
-				["at0018"] = <
-					text = <"> 200 μmol/l">
-					description = <"">
-				>
 				["at0019"] = <
 					text = <"Creatinine clearance">
 					description = <"Renal dysfunction is assessed by CC as estimated using
 the Cockcroft–Gault formula.">
-				>
-				["at0020"] = <
-					text = <">85 mL/min">
-					description = <"Normal">
-				>
-				["at0021"] = <
-					text = <"> 50–85 mL/min">
-					description = <"Moderately impaired">
-				>
-				["at0022"] = <
-					text = <"≤ 50">
-					description = <"Severely impaired">
 				>
 				["at0024"] = <
 					text = <"Active endocarditis">
@@ -346,22 +324,6 @@ the Cockcroft–Gault formula.">
 					text = <"NYHA class">
 					description = <"New York Heart Association (NYHA) functional classification for heart failure.">
 				>
-				["at0028"] = <
-					text = <"Class I">
-					description = <"">
-				>
-				["at0029"] = <
-					text = <"Class II">
-					description = <"">
-				>
-				["at0030"] = <
-					text = <"Class III">
-					description = <"">
-				>
-				["at0031"] = <
-					text = <"Class IV">
-					description = <"">
-				>
 				["at0032"] = <
 					text = <"CCS class 4 angina">
 					description = <"Inability to carry on any physical activity without discomfort; anginal syndrome may be present at rest.">
@@ -369,26 +331,6 @@ the Cockcroft–Gault formula.">
 				["at0033"] = <
 					text = <"Left ventricle ejection fraction">
 					description = <"Left ventricle ejection fraction">
-				>
-				["at0034"] = <
-					text = <"51% or more">
-					description = <"Good">
-				>
-				["at0035"] = <
-					text = <"31-50%">
-					description = <"Moderate">
-				>
-				["at0036"] = <
-					text = <"21-30%">
-					description = <"Poor">
-				>
-				["at0037"] = <
-					text = <"20% or less">
-					description = <"Very poor">
-				>
-				["at0038"] = <
-					text = <"On dialysis (regardless of serum creatinine)">
-					description = <"">
 				>
 				["at0039"] = <
 					text = <"Insulin-dependent diabetes mellitus">
@@ -399,11 +341,11 @@ the Cockcroft–Gault formula.">
 					description = <"Within 90 days before operation.">
 				>
 				["at0041"] = <
-					text = <"Systolic pulmonary artery pressure">
+					text = <"Pulmonary artery systolic pressure">
 					description = <"">
 				>
 				["at0042"] = <
-					text = <"Urgency">
+					text = <"Urgency of operation">
 					description = <"">
 				>
 				["at0043"] = <
@@ -411,24 +353,8 @@ the Cockcroft–Gault formula.">
 					description = <"">
 				>
 				["at0044"] = <
-					text = <"Thoracic aorta">
-					description = <"">
-				>
-				["at0046"] = <
-					text = <"Class I">
-					description = <"">
-				>
-				["at0047"] = <
-					text = <"Class II">
-					description = <"">
-				>
-				["at0048"] = <
-					text = <"Class III">
-					description = <"">
-				>
-				["at0049"] = <
-					text = <"Class IV">
-					description = <"">
+					text = <"Thoracic aorta surgery">
+					description = <"For disorders of ascending, arch or descending aorta. ">
 				>
 				["at0050"] = <
 					text = <"Patient-related factors">
@@ -443,20 +369,96 @@ the Cockcroft–Gault formula.">
 					description = <"">
 				>
 				["at0053"] = <
-					text = <"Total score">
+					text = <"Predicted mortality by EuroSCORE II">
 					description = <"">
 				>
-				["at0058"] = <
+				["at0061"] = <
+					text = <"Class I">
+					description = <"No symptoms on moderate exertion">
+				>
+				["at0062"] = <
+					text = <"Class II">
+					description = <"Symptoms on moderate exertion">
+				>
+				["at0063"] = <
+					text = <"Class III">
+					description = <"Symptoms on light exertion">
+				>
+				["at0064"] = <
+					text = <"Class IV">
+					description = <"Symptoms at rest">
+				>
+				["at0065"] = <
+					text = <"51% or more">
+					description = <"Good">
+				>
+				["at0066"] = <
+					text = <"31-50%">
+					description = <"Moderate">
+				>
+				["at0067"] = <
+					text = <"21-30%">
+					description = <"Poor">
+				>
+				["at0068"] = <
+					text = <"20% or less">
+					description = <"Very poor">
+				>
+				["at0069"] = <
 					text = <"≤ 30 mmHg">
-					description = <"">
+					description = <"No pulmonary hypertension">
 				>
-				["at0059"] = <
+				["at0070"] = <
 					text = <"31–55 mmHg">
+					description = <"Moderate pulmonary hypertension">
+				>
+				["at0071"] = <
+					text = <"≥ 56 mmHg">
+					description = <"Severe pulmonary hypertension">
+				>
+				["at0072"] = <
+					text = <"CC > 85 ml/min">
+					description = <"Normal">
+				>
+				["at0073"] = <
+					text = <"CC 50–85 ml/min">
+					description = <"Moderately impaired">
+				>
+				["at0074"] = <
+					text = <"CC < 50 ml/min">
+					description = <"Severely impaired">
+				>
+				["at0075"] = <
+					text = <"On dialysis (regardless of serum creatinine)">
 					description = <"">
 				>
-				["at0060"] = <
-					text = <"≥55 mmHg">
-					description = <"">
+				["at0076"] = <
+					text = <"Elective">
+					description = <"Routine admission for operation.">
+				>
+				["at0077"] = <
+					text = <"Urgent">
+					description = <"Patients not electively admitted for operation but who require surgery on the current admission for medical reasons and cannot be discharged without a definitive procedure.">
+				>
+				["at0078"] = <
+					text = <"Emergency">
+					description = <"Operation before the beginning of the next working day after decision to operate.">
+				>
+				["at0079"] = <
+					text = <"Salvage">
+					description = <"Patients requiring cardiopulmonary resuscitation (external cardiac massage) en route to the operating theatre or before induction of anaesthesia. This does not include cardiopulmonary resuscitation after induction of anaesthesia.">
+				>
+				["at0080"] = <
+					text = <"Isolated non-CABG major procedure">
+					description = <"Single valve procedure, replacement of ascending aorta, correction of septal defect, etc.">
+				>
+				["at0081"] = <
+					text = <"Two major procedures">
+					description = <"CABG + AVR, or CABG + mitral valve repair (MVR), or AVR + replacement of ascending aorta, or CABG + maze procedure, or AVR + MVR, etc.">
+				>
+				["at0082"] = <
+					text = <"Three major procedures or more">
+					description = <"AVR + MVR + CABG, or MVR + CABG + tricuspid annuloplasty; or aortic root replacement when it includes AVR or repair + coronary reimplantation + root and ascending replacement.">
 				>
 			>
 		>
