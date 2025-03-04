@@ -20,8 +20,11 @@ description
 			language = <[ISO_639-1::en]>
 			purpose = <"To record the results for each component parameter and predicted mortality for the EuroSCORE II.">
 			keywords = <"EuroSCORE II, cardiology, risk, mortality, cardiac surgery.", ...>
-			use = <"Use to record the results for each component parameter and predicted mortality for the EuroSCORE II.">
-			misuse = <"Not to be used to record the perioperative risk of major cardiac complications during non-cardiac surgery - use openEHR-EHR-OBSERVATION.revised_cardiac_risk_index.v1.
+			copyright = <"© Royal Papworth Hospital NHS Foundation Trust. This archetype is based on the structure of input parameters used in the EuroSCORE II calculator, which is the intellectual property of Royal Papworth Hospital NHS Foundation Trust. However, this model does not implement or reproduce the EuroSCORE II scoring algorithm or calculations. Users must refer to the official calculator at https://www.euroscore.org/index.php?id=17&lang=en for risk assessment.">
+			use = <"Use to record the input data for each component parameter and predicted mortality used in EuroSCORE II calculator. ">
+			misuse = <"Not to be used to perform any calculations of EuroSCORE II. This archetype is solely for recording the input data used in the EuroSCORE II calculator and does not implement any scoring algorithms or calculations. Use the official EuroSCORE II calculator for risk calculation at https://www.euroscore.org/index.php?id=17&lang=en.
+
+Not to be used to record the perioperative risk of major cardiac complications during non-cardiac surgery - use openEHR-EHR-OBSERVATION.revised_cardiac_risk_index.v1.
 
 Not to be used to record NYHA functional classification of heart failure - use openEHR-EHR-OBSERVATION.nyha_heart_failure.v1.
 
@@ -35,14 +38,15 @@ Not to be used to record creatinine clearance - use openEHR-EHR-OBSERVATION.esti
 		["custodian_organisation"] = <"openEHR Foundation">
 		["references"] = <"Nashef SA, Roques F, Sharples LD, Nilsson J, Smith C, Goldstone AR, Lockowandt U. EuroSCORE II. Eur J Cardiothorac Surg. 2012 Apr;41(4):734-44; discussion 744-5. doi: 10.1093/ejcts/ezs043. Epub 2012 Feb 29. PMID: 22378855.
 
-Chalmers J, Pullan M, Fabri B, McShane J, Shaw M, Mediratta N, Poullis M. Validation of EuroSCORE II in a modern cohort of patients undergoing cardiac surgery. Eur J Cardiothorac Surg. 2013 Apr;43(4):688-94. doi: 10.1093/ejcts/ezs406. Epub 2012 Jul 24. PMID: 22833541.
+Nashef SA, Roques F, Michel P, Gauducheau E, Lemeshow S, Salamon R. European system for cardiac operative risk evaluation (EuroSCORE). Eur J Cardiothorac Surg. 1999 Jul;16(1):9-13. doi: 10.1016/s1010-7940(99)00134-7. PMID: 10456395.
 
-Kalender M, Adademir T, Tasar M, Ecevit AN, Karaca OG, Salihi S, Buyukbayrak F, Ozkokeli M. Validation of EuroSCORE II risk model for coronary artery bypass surgery in high-risk patients. Kardiochir Torakochirurgia Pol. 2014 Sep;11(3):252-6. doi: 10.5114/kitp.2014.45672. Epub 2014 Sep 28. PMID: 26336431; PMCID: PMC4283878.">
+National Center for Biotechnology Information. EuroSCORE II [Internet]. Royal Papworth Hospital NHS Foundation Trust; [cited 2025 Mar 4]. Available from: https://www.ncbi.nlm.nih.gov/books/NBK7274/">
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"9ed66eb4bc36ead8c05c3961a3634728">
+		["MD5-CAM-1.0.1"] = <"01d354cc0680ee8658f922990844d78a">
 		["build_uid"] = <"a1e7c9ed-f6e8-35d1-a64e-4740d517e574">
+		["ip_acknowledgements"] = <"This archetype is based on the EuroSCORE II scoring system, which is a registered trademark of Royal Papworth Hospital NHS Foundation Trust. It reflects the structure of input parameters used in the official EuroSCORE II calculator but does not include or perform any calculations. All intellectual property rights, including copyright and database rights, remain with Royal Papworth Hospital NHS Foundation Trust.">
 	>
 
 definition
@@ -290,12 +294,11 @@ ontology
 				>
 				["at0011"] = <
 					text = <"Chronic pulmonary dysfunction">
-					description = <"">
+					description = <"Long term use of bronchodilatators or steriods for lung disease. ">
 				>
 				["at0012"] = <
 					text = <"Neurological or musculoskeletal dysfunction">
 					description = <"Severe impairment of mobility secondary to musculoskeletal or neurological dysfunction.">
-					comment = <"Poor mobility -  neurological or musculoskeletal dysfunction severely affecting mobility.">
 				>
 				["at0013"] = <
 					text = <"Previous cardiac surgery">
