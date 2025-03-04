@@ -26,7 +26,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"7681f9cbe48aad99c7b3e1f417e09179">
+		["MD5-CAM-1.0.1"] = <"db845848c01e1ba9a6cd20b66aa6d942">
 		["build_uid"] = <"a4d0f05a-c0cf-3e70-822c-47a80e66838b">
 	>
 
@@ -41,7 +41,19 @@ definition
 								items cardinality matches {0..*; unordered} matches {
 									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Planned Surgery
 										value matches {
-											DV_CODED_TEXT matches {*}
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0017,    -- Isolated CABG
+													at0018,    -- Isolated AVR
+													at0019,    -- Isolated MVR
+													at0020,    -- AVR + CABG
+													at0021,    -- MVR + CABG
+													at0022,    -- MV Repair - Any Etiology
+													at0023,    -- MV Repair for Primary MR
+													at0024]    -- MV Repair + CABG
+												}
+											}
 										}
 									}
 									ELEMENT[at0006] occurrences matches {0..1} matches {    -- Operative mortality
@@ -246,6 +258,38 @@ ontology
 				>
 				["at0016"] = <
 					text = <"Media file">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Isolated CABG">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Isolated AVR">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Isolated MVR">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"AVR + CABG">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"MVR + CABG">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"MV Repair - Any Etiology">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"MV Repair for Primary MR">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"MV Repair + CABG">
 					description = <"">
 				>
 			>
