@@ -1,0 +1,253 @@
+archetype (adl_version=1.4; uid=c0410b60-6e01-458e-8d88-097d70950ae7)
+	openEHR-EHR-OBSERVATION.sts_score.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["name"] = <"Olha Nikolaieva">
+		["email"] = <"olha.nikolaieva.med@gmail.com">
+		["organisation"] = <"University Hospital Basel">
+		["date"] = <"2025-03-04">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"7681f9cbe48aad99c7b3e1f417e09179">
+		["build_uid"] = <"a4d0f05a-c0cf-3e70-822c-47a80e66838b">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- The Society of Thoracic Surgeons Cardiac Surgery Risk Models (STS) Score
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Planned Surgery
+										value matches {
+											DV_CODED_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {    -- Operative mortality
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::507]>
+												list = <
+													["1"] = <
+														units = <"%">
+														magnitude = <|0.0..100.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {    -- Morbidity and mortality
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::507]>
+												list = <
+													["1"] = <
+														units = <"%">
+														magnitude = <|0.0..100.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {    -- Stroke
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::507]>
+												list = <
+													["1"] = <
+														units = <"%">
+														magnitude = <|0.0..100.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {    -- Renal failure
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::507]>
+												list = <
+													["1"] = <
+														units = <"%">
+														magnitude = <|0.0..100.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {    -- Reoperation
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::507]>
+												list = <
+													["1"] = <
+														units = <"%">
+														magnitude = <|0.0..100.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {    -- Prolonged ventilation
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::507]>
+												list = <
+													["1"] = <
+														units = <"%">
+														magnitude = <|0.0..100.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {    -- Deep sternal wound infection
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::507]>
+												list = <
+													["1"] = <
+														units = <"%">
+														magnitude = <|0.0..100.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0013] occurrences matches {0..1} matches {    -- Long hospital stay (>14 days)
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::507]>
+												list = <
+													["1"] = <
+														units = <"%">
+														magnitude = <|0.0..100.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {    -- Short hospital stay (<6 days)
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::507]>
+												list = <
+													["1"] = <
+														units = <"%">
+														magnitude = <|0.0..100.0|>
+													>
+												>
+											>
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0015] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0016] occurrences matches {0..*} matches {    -- Media file
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"The Society of Thoracic Surgeons Cardiac Surgery Risk Models (STS) Score">
+					description = <"STS score">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Planned Surgery">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Operative mortality">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Morbidity and mortality">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Stroke">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Renal failure">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Reoperation">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Prolonged ventilation">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Deep sternal wound infection">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Long hospital stay (>14 days)">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Short hospital stay (<6 days)">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0016"] = <
+					text = <"Media file">
+					description = <"">
+				>
+			>
+		>
+	>
