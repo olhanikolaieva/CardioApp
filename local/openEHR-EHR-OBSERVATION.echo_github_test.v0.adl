@@ -9,10 +9,10 @@ language
 
 description
 	original_author = <
-		["name"] = <"Olha Nikolaieva">
-		["email"] = <"olha.nikolaieva.med@gmail.com">
-		["organisation"] = <"University Hospital Basel">
 		["date"] = <"2025-05-14">
+		["name"] = <"Olha Nikolaieva">
+		["organisation"] = <"University Hospital Basel">
+		["email"] = <"olha.nikolaieva.med@gmail.com">
 	>
 	lifecycle_state = <"unmanaged">
 	details = <
@@ -26,7 +26,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"d87ea4e7759f5fa61541000760dffe8b">
+		["MD5-CAM-1.0.1"] = <"20a9a0acfa9aa842bb3a89d794669f38">
 		["build_uid"] = <"1345bf39-9310-3f7d-969a-123dde66f936">
 	>
 
@@ -40,6 +40,11 @@ definition
 							ITEM_TREE[at0003] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
 									ELEMENT[at0004] occurrences matches {0..1} matches {    -- test
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {    -- test_2
 										value matches {
 											DV_TEXT matches {*}
 										}
@@ -75,6 +80,10 @@ ontology
 				>
 				["at0004"] = <
 					text = <"test">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"test_2">
 					description = <"">
 				>
 			>
